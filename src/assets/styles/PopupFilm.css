@@ -1,0 +1,204 @@
+.allma {
+    background-color: #181A1C;
+    color: white;
+    position: relative;
+}
+.silang {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #181A1C;
+    z-index: 1;
+    cursor: pointer;
+}
+.kkl{
+    width: 100%;
+    height: 100hv;
+
+}
+
+.img33 {
+    width: 100%;
+    height: 554px;
+    display: flex;
+    position: relative;
+}
+.imgg2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.imgg2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 -300px 500px rgba(24, 26, 28, 1), inset 0 -100px 30px rgba(24, 26, 28, 1);
+}
+.imgg4 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.tombol22 {
+    width: 89%;
+    height: 103px;
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.namefilm {
+    display: flex;
+    width: 50%;
+    height: 35px;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 8px;
+
+}
+.mulai11 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.merg11 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+.aff {
+    width: 381px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+.infomov {
+    width: 100%;
+    height: 224px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.app {
+    width: 381px;
+    height: 176px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    margin-top: 40px;
+}
+.cast {
+    display: flex;
+    gap: 10px;
+    width: 90%;
+    font-size: 13px;
+
+}
+.qqqpp {
+    width: 229px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+.qwew {
+    width: 100px;
+    height: 22px;
+    text-wrap: wrap;
+    
+}
+.rateinfo {
+    font-size: 20px;
+    color: white;
+}
+@media (max-width:360px) {
+    .allma{
+        width: 100%;
+        height: auto;
+        background-color: #181A1C;
+        overflow-y: scroll;
+    }
+    .kkl{
+        width: 100%;
+        height: auto;
+    }
+    .img33{
+        height: 180px;
+    }
+    .imgg4{
+        width: 100%;
+        height: 200px;
+    }
+    .imgg2::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 -70px 500px rgba(24, 26, 28, 1), inset 0 -70px 30px rgba(24, 26, 28, 1);
+    }
+    .tombol22{
+        width: 265.12px;
+        height: 55px;
+        gap: 8px;
+        left: 30px;
+    }
+    .mulai11{
+        width: 265.12px;
+        height: 25px;
+    }
+    .mulai{
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .infomov{
+        height: 200px;
+        justify-content: none;
+        flex-direction: column;
+    }
+    .aff{
+        width: 90%;
+        font-size: 12px;
+    }
+    .cast{
+        width: 90%;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .app{
+        width: 100%;
+    }
+    .qqqpp{
+        flex-direction: row;
+        width: 90%;
+        gap: 5px;
+    }
+
+}

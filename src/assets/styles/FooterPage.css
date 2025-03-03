@@ -1,0 +1,220 @@
+footer {
+    position: relative;
+    bottom: 0px;
+    margin-top: 20px;
+}
+.ar {
+    width: 100%;
+    height: 284px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.re {
+    width: 90%;
+    height: 164px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cil {
+    width: 251px;
+    height: 91px;
+    display: flex;
+    gap: 26px;
+    flex-direction: column;
+    color: white;
+}
+.nn {
+    width: 163px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 4px;
+}
+.chill {
+    width: 50px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.chill img {
+    width: 50px;
+    height: 44px;
+}
+.cil p {
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+}
+.cre {
+    font-size: 16px;
+    font-weight: 400;
+}
+.g {
+    width: 514px;
+    height: 164px;
+    gap: 15px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+.gene {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.listgen {
+    width: 100%;
+    height: 127px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-size: 16px;
+    font-weight: 500;
+}
+.listgen div{
+    width: 77px;
+    height: 22px;
+    font-size: 14px;
+}
+.b {
+    width: 140px;
+    height: 164px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.ban {
+    font-size: 16px;
+    font-weight: 700;
+}
+.listban {
+    width: 100%;
+    height: 127px;
+    display: flex;
+    gap: 28px;
+    flex-direction: column;
+    font-size: 14px;
+}
+.updown {
+    display: none;
+}
+.listban2{
+    display: none;
+}
+.listgen2{
+    display: none;
+}
+@media (max-width: 360px) {
+    .ar {
+        height: auto;
+        position: relative;
+        margin-top: 70px;
+    }
+    .re {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .cil {
+        width: 90%;
+        height: 57.75px;
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+    .nn {
+        width: 84px;
+        height: 24.75px;
+        gap: 3px;
+        margin-left: 10px;
+    }
+    .cil p {
+        font-size: 24px;
+        text-align: center;
+    }
+    .chil img {
+        width: 28px;
+        align-items: 25px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    .cre {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .g {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 56px;
+        gap: 8px;
+    }
+    .listban2 {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 100px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        gap: 5px;
+
+    }
+    .listgen2 {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        gap: 5px;
+
+
+    }
+    .listban{
+        display: none;
+    }
+    .listgen{
+        display: none;
+    }
+    .b {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .g{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    hr {
+        display: none;
+    }
+    .ban {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .updown{
+        display: flex;
+    }
+    
+
+    
+}

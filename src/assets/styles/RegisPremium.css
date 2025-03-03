@@ -1,0 +1,235 @@
+.req{
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.byr {
+    margin-top: 20px;
+    width: 90%;
+    height: 631px;
+    display: flex;
+    flex-direction: column;
+}
+.ring {
+    color: #E0E0E0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.tm {
+    width: 80%;
+    height: 135px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #22282A;
+    border-radius: 12px;
+    margin-top: 94px;
+}
+.ju {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+.wak {
+    display: flex;
+    width: 393px;
+    height: 49px;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+.eed{
+    width: 96px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: #E7E3FC14;
+    border-radius: 8px;
+    font-size: 20px;
+}
+.byr {
+    width: 80%;
+    height: 631px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+.mtd {
+    width: 1004px;
+    height: 556px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.mtdpbyr {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    color: white;
+}
+.oay {
+    width: 90%;
+    height: 48px;
+    border: 2px #E0E0E0 solid;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    text-align: center;
+    gap: 6px;
+    border-radius: 6px;
+}
+.oay img{
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+.hap {
+    width: 90%;
+    height: 455px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    color: white;
+}
+.tgl{
+    width: 100%;
+    height: 52px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-direction: column;
+}
+.tgl{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-direction: column;
+}
+.eaa{
+    width: 100%;
+    height: 85px;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-direction: column;
+}
+.tanggal {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+}
+.pbyr {
+    font-size: 16px;
+    font-weight: bolds;
+}
+.adc {
+    width: 90%;
+    height: 631px;
+    justify-content: space-between;
+    display: flex;
+    gap: 20px;
+}
+.lam {
+    width: 90%;
+    height: 147px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+}
+.cra ul{
+    width: 100%;
+    height: 110px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+
+}
+.byrr {
+    width: 94px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #E0E0E0;
+    border-radius: 48px;
+    background-color: #09147A;
+    margin-top: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media (max-width: 360px) {
+    .req{
+        height: 1354px;
+    }
+    .tm{
+        width: 320px;
+        height: 118px;
+        border-radius: 12px;
+        gap: 8px;
+    }
+    .wak {
+        width: 270px;
+        height: 42px;
+        gap: 8px;
+        font-size: 14px;
+    }
+    .eed{
+        width: 75px;
+        height: 42px;
+        border-radius: 8px;
+        gap: 19px;
+        font-size: 16px;
+    }
+    .adc{
+        justify-content: none;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+    .mtd {
+        width: 90%;
+        height: 900px;
+        gap: 16px;
+    }
+    .juw  {
+        font-size: 14px;
+    }
+    .oay{
+        font-size: 14px;
+    }
+    .tanggal {
+        font-size: 12px;
+    }
+    .lam {
+        height: 200px;
+    }
+    .cra{
+        font-size: 12px;
+    }
+    .byrr{
+        margin-top: 50px;
+    }
+}

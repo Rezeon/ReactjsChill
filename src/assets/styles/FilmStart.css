@@ -1,0 +1,205 @@
+.beranda {
+    width: 100%;
+    height: 587px;
+    display: flex;
+    position: relative;
+    top: 24px;
+}
+.berandimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 10px;
+}
+.berandawrapper {
+    position: relative;
+    width: 130%;
+    height: 130%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.berandawrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 -300px 500px rgba(24, 26, 28, 1), inset 0 -100px 30px rgba(24, 26, 28, 1);
+}
+
+.desk {
+    width: 89%;
+    height: 233px;
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.infofilm {
+    display: flex;
+    width: 50%;
+    height: 148px;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.judulfilm {
+    font-size: 48px;
+    line-height: 52.8px;
+    font-weight: 700;
+}
+.deskripsi {
+    font-size: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 668px;
+}
+.iconfilm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+.mulai {
+    width: 93px;
+    height: 45px;
+    border-radius: 48px;
+    background-color: #0F1E93;
+    color:white ;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+}
+.selengkap {
+    width: 185px;
+    height: 45px;
+    border-radius: 48px;
+    background-color: #22282A;
+    justify-content: center;
+    display: flex;
+    gap: 5px;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+.selengkap img{
+    width: 24px;
+    height: 24px;
+}
+.rateinfo {
+    width: 52px;
+    height: 45px;
+    border-radius: 24px;
+    background-color: transparent;
+    border: 1px #C1C2C4 solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.suara {
+    width: 44px;
+    height: 44px;
+    border: 1px #C1C2C4 solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.suara img {
+    width: 24px;
+    height: 24px;
+}
+@media (max-width: 360px) {
+    .beranda {
+        height: 225px;
+    }
+    .desk {
+        height: 118px;
+        width: 90%;
+        gap: 12px;
+        left: 10%;
+    }
+    .infofilm {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .judulfilm {
+        font-size: 24px;
+    }
+    .deskripsi {
+        font-size: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+    .iconfilm {
+        width: 100%;
+        height: 25px;
+    }
+    .a {
+        font-size: 10px;
+        width: 221px;
+        height: 25px;
+        gap: 8px;
+    }
+    .mulai {
+        width: 55px;
+        height: 25px;
+        border-radius: 12px;
+    }
+    .selengkap {
+        width: 120px;
+        height: 25px;
+        border-radius: 12px;
+    }
+    .selengkap img {
+        width: 14px;
+        height: 14px;
+    }
+    .rateinfo {
+        width: 30px;
+        height: 25px;
+        border-radius: 24px;
+        font-size: 12px;
+    }
+    .suara {
+        width: 25px;
+        height: 25px;
+    }
+    .suara img {
+        width: 16px;
+        height: 16px;
+    }
+    
+}

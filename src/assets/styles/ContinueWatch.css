@@ -1,0 +1,85 @@
+.top {
+    width: 100%;
+    height: 309px;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    position: relative;
+    top: 100px;
+}
+.judul {
+    font-size: 32px;
+    font-weight: 700;
+    margin-left: 20px;
+    color: white;
+
+}
+.list {
+    left: 70px;
+    position: relative;
+    width: 92%;
+    height: 182px;
+    border-radius: 10px;
+    display: inline-block;
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+}
+.list1 {
+    width: 302px;
+    height: 162px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+
+}
+.info {
+    width: 80%;
+    height: 54px;
+    justify-content: space-between;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    bottom: 3px;
+    position: absolute;
+}
+.info p{
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+.p1 {
+    left: 15px;
+}
+.p2 {
+    right: -45px;
+}
+.list img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+}
+.list p{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 360px) {
+    .top {
+        height: 235px;
+        gap: 20px;
+    }
+    .judul {
+        font-size: 20px !important; 
+        font-weight: 700;
+    }
+    .list{
+        left: 35px;
+    }
+}

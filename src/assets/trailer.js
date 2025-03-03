@@ -1,0 +1,36 @@
+const trailers = {
+    "Chichirotech": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "Rio": "https://www.youtube.com/watch?v=RA3V8sxcq9M",
+    "Spider-Man: Across the Spider-Verse": "https://www.youtube.com/watch?v=cqGjhVJWtEg",
+    "Guardians of the Galaxy Vol. 3": "https://www.youtube.com/watch?v=u3V5KDHRQvk",
+    "Happiness": "https://www.youtube.com/watch?v=FcTVFgOmX7w",
+    "Dilan 1990": "https://www.youtube.com/watch?v=UeH0tifzLNo",
+    "Baymax!": "https://www.youtube.com/watch?v=mv4ZBGrpgJg",
+    "Jurassic World": "https://www.youtube.com/watch?v=RFinNxS5KN4",
+    "Stuart Little": "https://www.youtube.com/watch?v=r0C-WU84EfA",
+    "Ted Lasso": "https://www.youtube.com/watch?v=3u7EIiohs6U",
+    "The Devil All the Time": "https://www.youtube.com/watch?v=EIzazUv2gtI",
+    "Black Adam": "https://www.youtube.com/watch?v=X0tOpBuYasI",
+    "Don't Look Up": "https://www.youtube.com/watch?v=RbIxYm3mKzI",
+    "Doctor Strange in the Multiverse of Madness": "https://www.youtube.com/watch?v=aWzlQ2N6qqg",
+    "My Hero Academia": "https://youtu.be/sXAZ0b-Q59Y?si=oysJr2kj-7s117qu",
+    "Duty After School": "https://www.youtube.com/watch?v=4cUQUbFf3vA",
+    "Ant-Man and the Wasp: Quantumania": "https://www.youtube.com/watch?v=ZlNFpri-Y40",
+    "M3GAN": "https://www.youtube.com/watch?v=BRb4U99OU80",
+    "Suzume": "https://youtu.be/5pTcio2hTSw?si=-UnBXeSk2qqOGYPy",
+    "Missing": "https://www.youtube.com/watch?v=seBixtcx19E",
+    "Big Hero 6": "https://www.youtube.com/watch?v=z3biFxZIJOQ",
+    "Alice in Borderland": "https://www.youtube.com/watch?v=49_44FFKZ1M",
+    "A Man Called Otto": "https://www.youtube.com/watch?v=eFYUX9l-m5I",
+    "All of Us Are Dead": "https://www.youtube.com/watch?v=IN5TD4VRcSM",
+    "The Batman": "https://www.youtube.com/watch?v=mqqft2x_Aa4",
+    "The Tomorrow War": "https://www.youtube.com/watch?v=QPistcpGB8o",
+    "The Little Mermaid": "https://www.youtube.com/watch?v=kpGo2_d3oYE",
+    "Blue Lock": "https://youtu.be/p2QriyWhK00?si=ZE8o3TehSlbBqnpy",
+    "Fast & Furious 10": "https://www.youtube.com/watch?v=32RAq6JzY-w",
+    "Avatar": "https://www.youtube.com/watch?v=d9MyW72ELq0",
+    "Shazam": "https://www.youtube.com/watch?v=go6GEIrcvFY"
+  };
+  
+  export default trailers;
+  

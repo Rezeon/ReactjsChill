@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.loginr {
+    background-image: url('../images/register.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputlogin {
+    width: 40%;
+    height: 778px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color: rgba(24, 26, 28, 0.84);
+    border-radius: 16px;
+    gap: 37px;
+    position: relative;
+}
+
+.logoF {
+    width: 163px;
+    height: 44px;
+    display: flex;
+    margin-top: 37px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 44px;
+    font-weight: bolder;
+    gap: 4px;
+}
+.logo1 {
+    width: 50px;
+    height: 44px;
+}
+.masuk {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.masuk1 {
+    font-size: 32px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.selamat {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.username {
+    width: 85%;
+    height: 81px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.username label{
+    color: white;
+    font-size: 18px;
+}
+.username input{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 1px rgba(231, 227, 252, 0.23) solid;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22.4px;
+    color: white;
+}
+.password {
+    width: 85%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.password label{
+    color: white;
+    font-size: 18px;
+}
+.password input{
+    width: 100%;
+    height: 47px;
+    background-color: transparent;
+    border: 1px rgba(231, 227, 252, 0.23) solid;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22.4px;
+    color: white;
+    margin-bottom: 8px;
+}
+.daftar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.daftar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.daftar1 a{
+    color: white;
+    text-decoration: none;
+}
+.atau {
+    width: 85%;
+    height: 133px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+}
+.atau p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+.injj {
+    width: 100%;
+    outline: none;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    background-color: rgba(61, 65, 66, 1);
+    font-weight: 100;
+    font-size: 16px;
+    color: white;
+}
+.google {
+    width: 100%;
+    outline: none;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px rgba(231, 227, 252, 0.23) solid;
+    background-color: transparent;
+    font-weight: 100;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+@media (max-width: 360px){
+    .inputlogin{
+        width: 95%;
+        height: 452.28px;
+        border-radius: 8px;
+        gap: 20px;
+    }
+    .logo{
+        width: 94px;
+        height: 44px;
+        margin-top: 20px;
+        gap: 2.31px;
+        font-size: 28px;
+        font-weight: 400;
+    }
+    .logo1{
+        width: 28px;
+        height: 24px;
+    }
+    .masuk{
+        width: 120px;
+        height: 43.62px;
+    }
+    .masuk1{
+        font-size: 18px;
+    }
+    .selamat{
+        font-size: 10px;
+    }
+    .username{
+        height: 45.47px;
+        gap: 3.47px;
+    }
+    .username label{
+        font-size: 10px;
+    }
+    .username input{
+        height: 28px;
+        border-radius: 12px;
+        border: 0.58px rgba(231, 227, 252, 0.23) solid;
+        font-size: 9.24px;
+        
+    }
+    .password{
+        height: 120px; 
+        gap: 6.93px;
+    }
+    .password label{
+        font-size: 10px;
+    }
+    .password input{
+        height: 28px;
+        border-radius: 12px;
+        border: 0.58px rgba(231, 227, 252, 0.23) solid;
+        font-size: 9.24px;
+        margin-bottom: 0;
+    }
+    .daftar{
+        font-size: 10px;
+    }
+    .atau{
+        height: 79.33px;
+        gap: 4px;
+        font-size: 10px;
+    }
+    .in{
+        height: 30px;
+        border-radius: 13.86px; 
+        font-size: 10px;
+    }
+    .google{
+        height: 30px;
+        border-radius: 13.86px; 
+        font-size: 10px;
+    }
+    .google img{
+        width: 10px;
+        height: 10px;
+    }
+    
+    
+}

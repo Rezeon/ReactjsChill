@@ -1,0 +1,148 @@
+.lan {
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+
+}
+.pls {
+    width: 100%;
+    height: 467px;
+    position: relative;
+    top: 174px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    color: white;
+    gap: 72px;
+    position: relative;
+}
+.ju {
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    font-size: 28px;
+    margin: 0px;
+}
+.jan {
+    width: 80%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.naj {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+.dwn {
+    width: 426.67;
+    height: 120px;
+    justify-content: center;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dwn img{
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.dwn div{
+    text-align: center;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 200px;
+}
+.pil {
+    width: 100%;
+    height: 620px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #22282A;
+}
+.ju {
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.inf {
+    width: 100%;
+    color: white;
+    font-size: 19px;
+    text-align: center;
+}
+.pilihanm {
+    width: 60%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width:360px) {
+    .lan{
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .naj{
+        width: 90%;
+        height: 348px;
+        justify-content: center;
+        gap: 60px;
+    }
+    .pls{
+        width: 90%;
+        height: 348px;
+    }
+    .jan{
+        margin-top: 30px;
+    }
+    .dwn {
+        width: 80px;
+        height: 92px;
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .dwn img{
+        width: 24px;
+        height: 24px;
+    }
+    .dwn div{
+        font-size: 10px;
+    }
+    .pil{
+        width: 90%;
+        height: 1320px;
+        justify-content: center;
+        margin-top: 100px;
+        border-radius: 20px;
+    }
+    .pilihanm{
+        width: 236px;
+        height: 1150px;
+        gap: 32px;
+        flex-direction: column;
+    }
+    
+}

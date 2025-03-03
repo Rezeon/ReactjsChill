@@ -1,0 +1,34 @@
+.halnot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hallool {
+    display: flex;
+    align-items: center;
+    
+    flex-direction: column;
+    margin-top: 4%;
+}
+.hallool div{
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+.hallool a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 220px;
+    font-weight: bold;
+    height: 40px;
+    text-align: center;
+    background-color: #0F1E93;
+    border-radius: 20px;
+}
+.gambarttf {
+    width: 500px;
+    height: 500px;
+}

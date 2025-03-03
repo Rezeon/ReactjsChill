@@ -1,0 +1,355 @@
+.p {
+    position: relative;
+    width: 100%;
+    height: 649px;
+    top: 94px;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+}
+.ju {
+    width: 90%;
+    height: 35px;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-wrap: wrap;
+}
+.in {
+    width: 90%;
+    height: 428px;
+    display: flex;
+    gap: 80px;
+    background-color: transparent;
+}
+.datap {
+    width: 50%;
+    height: 428px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.pp {
+    width: 287px;
+    height: 140px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+.pp img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+.ub {
+    width: 123px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.btnup {
+    width: 100%;
+    height: 42px;
+    background-color: transparent;
+    border: 1px #3254FF solid;
+    color: #3254FF;
+    border-radius: 48px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.ma {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 10px;
+    width: 120px;
+    height: 20px;
+    font-size: 14px;
+}
+.ma img{
+    width: 24px;
+    height: 24px;
+}
+.namm {
+    width: 100%;
+    height: 64px;
+    outline: none;
+    background-color: #22282A;
+    display: flex;
+    gap: 8px;
+    border: 1px #E7E3FC solid;
+    border-radius: 8px;
+    padding-left: 10px;
+    color: white;
+}
+.namm::placeholder {
+    font-size: 16px;
+    color: #9D9EA1;
+    position: relative;
+    top: -12px;
+    left: 5px;
+}
+.sandii {
+    width: 100%;
+    height: 64px;
+    outline: none;
+    background-color: #22282A;
+    padding-left: 10px;
+    display: flex;
+    gap: 8px;
+    border: 1px #E7E3FC solid;
+    border-radius: 8px;
+    color: white;
+}
+.sandii::placeholder {
+    font-size: 16px;
+    color: #9D9EA1;
+    position: relative;
+    top: -12px;
+    left: 5px;
+}
+.emaill {
+    width: 100%;
+    height: 64px;
+    outline: none;
+    background-color: #22282A;
+    padding-left: 10px;
+    display: flex;
+    gap: 8px;
+    border: 1px #E7E3FC solid;
+    border-radius: 8px;
+    color: white;
+}
+.emaill::placeholder {
+    font-size: 16px;
+    color: #9D9EA1;
+    position: relative;
+    top: -12px;
+    left: 5px;
+}
+.pre {
+    width: 50%;
+    height: 210px;
+    background-color: #3D4142;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.infopre {
+    display: flex;
+    width: 95%;
+    height: 91px;
+    gap: 20px;
+    justify-content: space-between;
+}
+.infopre img{
+    width: 78px;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preee {
+    width: 80%;
+    height: 91px;
+    display: flex;
+    gap: 12px;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+.juf {
+    width: 357px;
+    height: auto;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    font-weight: 700;
+}
+.ing {
+    width: 357px;
+    height: 50px;
+    color: #FFFFFF;
+    text-align: start;
+    text-wrap: wrap;
+    font-size: 15px;
+    font-weight: 500;
+}
+.byrto {
+    width: 189px;
+    height: 34px;
+    text-decoration: none;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 340px;
+    border-radius: 48px;
+    background-color: #2F3334;
+    font-size: medium;
+    color: #FFFFFF;
+}
+
+.pre2 {
+    width: 50%;
+    height: 210px;
+    background: linear-gradient(286.17deg, #192DB7 0%, #5370D4 100%);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.infopremiumuser {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 110px;
+    gap: 20px;
+    justify-content: space-between;
+}
+.aktifpremium {
+    width: 81px;
+    height: 44px;
+    border-radius: 48px;
+    background-color: #C1C2C4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F1E93;
+}
+.aktifpremiuminfo {
+    width: 80%;
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+}
+.hap2 {
+    width: 357px;
+    height: auto;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+.berlaku {
+    font-size: 16px;
+    color: #C1C2C4;
+    font-weight: 500;
+}
+
+.simpan {
+    width: 106px;
+    height: 42px;
+    border: none;
+    outline: none;
+    border-radius: 48px;
+    background-color: #09147A;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+}
+.daf {
+    left: 70px;
+    position: relative;
+    margin-top: 30px;
+    width: 90%;
+    height: 600px;
+    overflow: visible;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:360px) {
+    .p{
+        width: 95%;
+        height: 723px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .in{
+        width: 100%;
+        margin-top: 30px;
+        height: 603px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+        margin-left: 15px;
+    }
+    .pre {
+        width: 100%;
+        height: 191px;
+    }
+    .pre2 {
+        width: 100%;
+        height: 191px;
+
+    }
+    .ju{
+        text-align: center;
+    }
+    .pp{
+        width: 100%;
+    }
+    .pp img {
+        width: 80px;
+        height: 80px;
+
+    }
+    .datap{
+        width: 100%;
+    }
+    .un {
+        width: 109px;
+        height: 68px;
+        gap: 8px;
+
+    }
+    .ma img {
+        width: 24px;
+        height: 24px;
+    }
+    .btnup {
+        width: 91px;
+        height: 36px;
+        font-size: 14px;
+    }
+    .namm {
+        width: 100%;
+        height: 56px;
+        gap: 6px;
+    }
+    .daf {
+        display: none;
+
+    }
+    .simpan{
+        width: 90px;
+        height: 38px;
+        font-size: 12px;
+    }
+}

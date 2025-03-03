@@ -1,0 +1,22 @@
+body {
+    background-color: #181A1C;
+}
+.modal-content {
+    width: 70%;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    padding: 0px;
+    z-index: 1001;
+    overflow: hidden;
+}
+@media (max-width:360px) {
+    .modal-content{
+        width: 90%;
+        height: 70vh;
+        position: relative;
+        margin-top: 50px;
+    }
+    
+}

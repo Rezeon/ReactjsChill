@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  margin: 0px;
+  padding: 0px;
+}
+@media ( max-width:360px ) {
+  body {
+    max-width: 360px;
+  }
+} 
+

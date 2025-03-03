@@ -1,0 +1,36 @@
+[
+    {
+      "id": 1,
+      "jenis": "Individual",
+      "price": 49000,
+      "accounts": "1 Akun",
+      "features": [
+        "Tidak ada iklan",
+        "Kualitas 720p",
+        "Download konten pilihan"
+      ]
+    },
+    {
+      "id": 2,
+      "jenis":"Berdua",
+      "price": 79000,
+      "accounts": "2 Akun",
+      "features": [
+        "Tidak ada iklan",
+        "Kualitas 1080p",
+        "Download konten pilihan"
+      ]
+    },
+    {
+      "id": 3,
+      "jenis": "Keluarga",
+      "price": 159000,
+      "accounts": "5-7 Akun",
+      "features": [
+        "Tidak ada iklan",
+        "Kualitas 4K",
+        "Download konten pilihan"
+      ]
+    }
+]
+  
