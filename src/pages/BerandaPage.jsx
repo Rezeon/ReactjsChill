@@ -7,6 +7,7 @@ import { useDataContext } from "../context/UserContext";
 import Modal from "react-modal";
 import "../assets/styles/BerandaPage.css"
 import Trailer  from '../assets/trailer'
+import '../../'
 
 Modal.setAppElement("#root");
 
