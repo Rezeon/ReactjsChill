@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./context/UserContext";
 import { useDataContext } from "./context/UserContext";
@@ -29,7 +29,6 @@ function MainApp() {
   return (
     <>
       <ToastContainer />
-      <BrowserRouter>
         <Routes>
         <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
@@ -47,7 +46,6 @@ function MainApp() {
           <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
     </>
   );
 }
