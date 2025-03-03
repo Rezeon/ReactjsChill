@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./context/UserContext";
 import { useDataContext } from "./context/UserContext";
