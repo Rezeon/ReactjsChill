@@ -18,9 +18,7 @@ import ProtectedRoute from "./context/ProteksiPage";
 function App() {
   return (
     <UserProvider>
-      <Router> {/* Menggunakan HashRouter agar bisa jalan di GitHub Pages */}
-        <MainApp />
-      </Router>
+      <MainApp />
     </UserProvider>
   );
 }
