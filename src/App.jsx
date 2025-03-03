@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { UserProvider } from "./context/UserContext";
 import { useDataContext } from "./context/UserContext";
@@ -11,14 +11,16 @@ import ProfilSaya from "./components/ProfilSaya";
 import LanggananChill from "./components/LanggananChill";
 import RegisPremium from "./pages/RegisPremium";
 import VideoPlayer from "./components/VideoPlayer";
-import Trailer from "./assets/film/film.mp4"
+import Trailer from "./assets/film/film.mp4";
 import NotFound from "./components/notfound/NotFound";
 import ProtectedRoute from "./context/ProteksiPage";
 
 function App() {
   return (
     <UserProvider>
-      <MainApp />
+      <Router> {/* Menggunakan HashRouter agar bisa jalan di GitHub Pages */}
+        <MainApp />
+      </Router>
     </UserProvider>
   );
 }
@@ -29,23 +31,23 @@ function MainApp() {
   return (
     <>
       <ToastContainer />
-        <Routes>
+      <Routes>
         <Route element={<ProtectedRoute />}>
-            <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/daftarsaya" element={<DaftarFilm filter="Daftar Saya" />} />
-              <Route path="/film" element={<DaftarFilm filter="Film" />} />
-              <Route path="/series" element={<DaftarFilm filter="Series" />} />
-              <Route path="/profilsaya" element={<ProfilSaya />} />
-              <Route path="/langgan" element={<LanggananChill />} />
-              <Route path="/regispremium/:id" element={<RegisPremium />} />
-            </Route>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/daftarsaya" element={<DaftarFilm filter="Daftar Saya" />} />
+            <Route path="/film" element={<DaftarFilm filter="Film" />} />
+            <Route path="/series" element={<DaftarFilm filter="Series" />} />
+            <Route path="/profilsaya" element={<ProfilSaya />} />
+            <Route path="/langgan" element={<LanggananChill />} />
+            <Route path="/regispremium/:id" element={<RegisPremium />} />
           </Route>
-          <Route path="/videoplay" element={<VideoPlayer Film={selectedFilm} Trailer={Trailer} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        </Route>
+        <Route path="/videoplay" element={<VideoPlayer Film={selectedFilm} Trailer={Trailer} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
