@@ -138,7 +138,7 @@ function RegisPremium() {
                                                 <li>Pilih menu "Transfer" atau "Pembayaran". </li>
                                                 <li>Pilih opsi "Virtual Account" atau "Virtual Account Number". </li>
                                                 <li>Masukkan nomor virtual account dan jumlah pembayaran, lalu konfirmasikan pembayaran.</li>
-                                            </ul>
+                                             </ul>
                                         </div>
                                     </div>
                                     <Link to="/profilsaya" className="byrr" onClick={handlePremium}>Bayar</Link>

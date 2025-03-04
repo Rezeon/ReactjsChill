@@ -29,9 +29,8 @@ function HeaderPage () {
                 ⭐Ubah ke Premium
                 </Link>
                 <hr />
-                <Link onClick={() => {
+                <Link to="/login" onClick={() => {
                       localStorage.removeItem("authToken");
-                      window.location.href = "/login";
                     }}>Logout</Link>
               </ul>
         )}
