@@ -17,7 +17,7 @@ function DaftarFilm({filter}) {
             <div className="filmsaya">
                 {films.map((film,index)=>
                 <div key={index} >
-                    <img src={film.img} alt="" className="lis1" />
+                    <img src={`${process.env.PUBLIC_URL}${film.img}`} alt="" className="lis1" />
                 </div>
                 )}
             </div>

@@ -2,6 +2,7 @@ import '../assets/styles/RegisterForm.css'
 import Foto from '../assets/images/logo.png'
 import Google from '../assets/images/google.png'
 import { useDataContext } from "../context/UserContext";
+import { Link } from 'react-router-dom';
 
 function Register () {
     const { username, password, setUsername, setPassword, handleRegister, conpassword, setconpassword } = useDataContext();
@@ -30,7 +31,7 @@ function Register () {
                    <input type="password"  name="Password" required placeholder="Masukan Password" value={conpassword} onChange={(e) => setconpassword(e.target.value)}/>
                    <div className="daftar">
                        <div className="daftar1">
-                           <p>Sudah punya akun?</p><a href="/login">Masuk?</a>
+                           <p>Sudah punya akun?</p><Link to="/login">Masuk?</Link>
                        </div>
                        <div className="lupa">Lupa kata sandi?</div>
                    </div>

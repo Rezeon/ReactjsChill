@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
         users.push({username,password,premium});
         localStorage.setItem("users", JSON.stringify(users));
         toast.success("Registrasi Sudah Terdaftar");
-        window.location.href="/login";
+        window.location.href="/ReactjsChill/#/login";
     }
 
     const handlePremium = () => {
@@ -93,7 +93,7 @@ export const UserProvider = ({ children }) => {
             const loggedInData = { ...user, token };
             localStorage.setItem("loggedInUser", JSON.stringify(loggedInData));
             localStorage.setItem("authToken", token);
-            window.location.href = "/";
+            window.location.href = "/ReactjsChill/#";
         } else {
             toast.error("Username atau password salah");
         }
@@ -120,7 +120,6 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("loggedInUser", JSON.stringify({ username: newUsername, password: newPassword }));
     
         alert("Perubahan berhasil disimpan");
-        window.location.reload();
     }
 
 
