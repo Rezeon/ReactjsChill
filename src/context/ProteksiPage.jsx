@@ -13,7 +13,7 @@ const ProtectedRoute = () => {
     return {};
   })();
 
-  return loggedInUser?.token ? <Outlet /> : <Navigate to="/login" />;
+  return loggedInUser?.token ? <Outlet /> : <Navigate to="/#/login" />;
 };
 
 export default ProtectedRoute;
