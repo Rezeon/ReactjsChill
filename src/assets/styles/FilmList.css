@@ -64,7 +64,7 @@
 }
 
 
-@media (max-width: 360px) {
+@media (max-width: 481px) {
     .to {
         height: 250px;
         gap: 20px;

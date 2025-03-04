@@ -139,7 +139,7 @@
     font-size: 20px;
     color: white;
 }
-@media (max-width:360px) {
+@media (max-width:481px) {
     .allma{
         width: 100%;
         height: auto;

@@ -154,7 +154,7 @@
 .lis1:hover .img1 {
     display: none;
 }
-@media (max-width: 360px) {
+@media (max-width: 481px) {
     .lis1 {
         width: 94px;
         height: 145px;

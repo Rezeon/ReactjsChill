@@ -134,7 +134,7 @@
     width: 24px;
     height: 24px;
 }
-@media (max-width: 360px) {
+@media (max-width: 481px) {
     .beranda {
         height: 225px;
     }

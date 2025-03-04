@@ -180,7 +180,7 @@
     text-decoration: none;
     cursor: pointer;
 }
-@media (max-width: 360px) {
+@media (max-width: 481px) {
     .req{
         height: 1354px;
     }

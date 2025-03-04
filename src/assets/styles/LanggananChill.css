@@ -98,7 +98,7 @@
     justify-content: space-between;
     align-items: center;
 }
-@media (max-width:360px) {
+@media (max-width:481px) {
     .lan{
         justify-content: center;
         align-items: center;
