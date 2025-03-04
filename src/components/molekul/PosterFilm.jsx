@@ -7,10 +7,10 @@ function PosterFilm({film,onImageClick}) {
     const { favoriteFilms, addFavoriteFilm, removeFavoriteFilm } = useDataContext();
     return (
         <div className="lis1" onClick={() => onImageClick(film.id)} >
-                    <img src={film.img} alt={''} className="img1"/>
+                    <img src={`${process.env.PUBLIC_URL}${film.img}`} alt={''} className="img1"/>
                     <div className="series" >
                         <div className="img11">
-                            <img src={film.img2} alt="" className="img2"/>
+                            <img src={`${process.env.PUBLIC_URL}${film.img2}`} alt="" className="img2"/>
                         </div>
                         <div className="op">
                             <div className="cek">

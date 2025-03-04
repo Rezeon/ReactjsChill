@@ -12,7 +12,7 @@ function PopupFilm({onClose,Film}) {
                 <div className="img33">
                     <div className="silang" onClick={onClose}>X</div>
                     <div className="imgg2">
-                        <img src={Film.img2} alt="" className='imgg4'/>
+                        <img src={`${process.env.PUBLIC_URL}${Film.img2}`} alt="" className='imgg4'/>
                     </div>
                     <div className="tombol22">
                         <div className="namefilm">

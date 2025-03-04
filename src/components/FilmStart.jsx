@@ -46,7 +46,7 @@ function FilmStart({Film,setPop,onImageClick,Trailer}) {
                         />
                     ) : (
                         <img
-                            src={Film?.img2}
+                            src={`${process.env.PUBLIC_URL}${Film?.img}`}
                             alt=""
                             className="berandimg"
                         />
