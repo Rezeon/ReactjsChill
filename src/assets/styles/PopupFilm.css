@@ -2,6 +2,8 @@
     background-color: #181A1C;
     color: white;
     position: relative;
+    overflow-y: auto;
+    height: 100vh;
 }
 .silang {
     text-align: center;
@@ -23,7 +25,6 @@
 .kkl{
     width: 100%;
     height: 100hv;
-    overflow-y: scroll;
 
 }
 
