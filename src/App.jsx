@@ -25,26 +25,25 @@ function App() {
 
 function MainApp() {
   const { selectedFilm } = useDataContext();
-  const basePath = "/ReactjsChill";
   return (
     <>
       <ToastContainer />
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route element={<Layout />}>
-            <Route path={`${basePath}/`} element={<HomePage />} />
-            <Route path={`${basePath}/daftarsaya`} element={<DaftarFilm filter="Daftar Saya" />} />
-            <Route path={`${basePath}/film` }element={<DaftarFilm filter="Film" />} />
-            <Route path={`${basePath}/series` }element={<DaftarFilm filter="Series" />} />
-            <Route path={`${basePath}/profilsaya`}element={<ProfilSaya />} />
-            <Route path={`${basePath}/langgan`} element={<LanggananChill />} />
-            <Route path={`${basePath}/regispremium/:id` }element={<RegisPremium />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/daftarsaya" element={<DaftarFilm filter="Daftar Saya" />} />
+            <Route path="/film" element={<DaftarFilm filter="Film" />} />
+            <Route path="/series" element={<DaftarFilm filter="Series" />} />
+            <Route path="/profilsaya" element={<ProfilSaya />} />
+            <Route path="/langgan" element={<LanggananChill />} />
+            <Route path="/regispremium/:id" element={<RegisPremium />} />
           </Route>
         </Route>
-        <Route path={`${basePath}/videoplay` }element={<VideoPlayer Film={selectedFilm} Trailer={Trailer} />} />
-        <Route path={`${basePath}/login` }element={<Login />} />
-        <Route path={`${basePath}/register`} element={<Register />} />
-        <Route path={`${basePath}*`} element={<NotFound />} />
+        <Route path="/videoplay" element={<VideoPlayer Film={selectedFilm} Trailer={Trailer} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
