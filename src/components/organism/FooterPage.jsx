@@ -17,7 +17,7 @@ function FooterPage() {
                         <p>CHILL</p>
                     </div>
                     <div className="cre">
-                     @2025 Chill Rheyno Fernando
+                     @2025 Chill Rheyno Fernando & Lintang Aufa
                     </div>
                 </div>
                     <div className="g">
