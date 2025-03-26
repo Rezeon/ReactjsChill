@@ -142,9 +142,8 @@
 @media (max-width:481px) {
     .allma{
         width: 100%;
-        height: auto;
+        height: 100vh;
         background-color: #181A1C;
-        overflow-y: scroll;
     }
     .kkl{
         width: 100%;

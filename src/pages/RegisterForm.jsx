@@ -18,7 +18,7 @@ function Register() {
   return (
     <body>
       <div className="loginr">
-        <div className="inputlogin">
+        <div className="inputlogin1">
           <div className="logoF">
             <img src={Foto} className="logo1" alt="" />
             <p>CHILL</p>
