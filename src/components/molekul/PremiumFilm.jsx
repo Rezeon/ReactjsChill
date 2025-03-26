@@ -12,6 +12,7 @@ function PremiumFilm({prem,onPosterClick}) {
         navigate(`/regispremium/${prem.id}`); 
     };
     
+    
 
     return (
         <div className="cov" >

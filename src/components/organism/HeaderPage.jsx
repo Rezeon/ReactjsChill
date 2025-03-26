@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import "../../assets/styles/HeaderPage.css";
 import { useState } from "react";
+import { useDataContext } from "../../context/UserContext";
 
 function HeaderPage () {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
     const [isOpen, setIsOpen] = useState(false);
+    const { handleLogout } = useDataContext
     return (
         <header>
             <div className="nav">
@@ -29,9 +31,9 @@ function HeaderPage () {
                 ⭐Ubah ke Premium
                 </Link>
                 <hr />
-                <Link to="/login" onClick={() => {
-                      localStorage.removeItem("authToken");
-                    }}>Logout</Link>
+                <Link to="/login" onClick={() => 
+                      handleLogout
+                    }>Logout</Link>
               </ul>
         )}
 

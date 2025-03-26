@@ -16,6 +16,7 @@ import NotFound from "./components/notfound/NotFound";
 import ProtectedRoute from "./context/ProteksiPage";
 
 function App() {
+  
   return (
     <UserProvider>
       <MainApp />

@@ -32,10 +32,12 @@ function PosterFilm({film,onImageClick}) {
                             <div>{film.episodes ? film.episodes : "Movie"} eps</div>
                         </div>
                         <div className="genre">
-                            {film.genre.flat().map((genre, index) => (
-                                <div key={index}>{genre}</div>
-                            ))}
+                            {(Array.isArray(film.genre) ? film.genre : [])
+                                .map((genre, index) => (
+                                    <div key={index}>{genre}</div>
+                                ))}
                         </div>
+                        
                     </div>
 
                 </div>

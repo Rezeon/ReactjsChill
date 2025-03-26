@@ -1,222 +1,356 @@
-import { createContext,useEffect,useState,useContext } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
-import BuyPremium from "../assets/buy.json"
-import Poster from "../assets/film.json"
-import Prof from "../assets/icon/Prof.png"
-
+import Prof from "../assets/icon/Prof.png";
+import { fetchMovies, fetchPremiums } from "../api/api";
+import { auth, googleProvider, db } from "../api/firebase";
+import {
+  doc,
+  updateDoc,
+  getDoc,
+  arrayUnion,
+  arrayRemove,
+} from "firebase/firestore";
+import { getAuth, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  updatePassword,
+  updateEmail,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+} from "firebase/auth";
+import { saveUserToFirestore } from "../api/addmovie";
 export const UserContext = createContext();
 const generateToken = () => {
-    return Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-  };  
+  return (
+    Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2)
+  );
+};
 
 export const UserProvider = ({ children }) => {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+  const loggedInUser = auth.currentUser;
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [conpassword, setconpassword] = useState("");
-    const [newUsername, setnewUsername] = useState(loggedInUser.username || "");
-    const [newPassword, setnewPassword] = useState(loggedInUser.password || "");
-    const [profileImage, setProfileImage] = useState(localStorage.getItem("profileImage") || Prof);
-    const [premium, setPremium] = useState(false);
-    const [favoriteFilms, setFavoriteFilms] = useState([]);
-    
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [conpassword, setconpassword] = useState("");
+  const [newEmail, setnewEmail] = useState(loggedInUser?.email || "");
+  const [newPassword, setnewPassword] = useState("");
+  const [profileImage, setProfileImage] = useState(
+    localStorage.getItem("profileImage") || Prof
+  );
+  const [isPremium, setPremium] = useState(false);
+  const [favoriteFilms, setFavoriteFilms] = useState([]);
+  const [currentPassword, setCurrentPassword] = useState("");
 
+  const [Post, setFilm] = useState([]);
+  const [Prem, setBuy] = useState([]);
+  const [PremSel, setPremSel] = useState([]);
+  const [selectedFilm, setSelectedFilm] = useState(() =>
+    Post.find((f) => f.id === 2)
+  );
+  const [popUp, setPop] = useState(false);
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    if (password !== conpassword) {
+      toast.error("Password tidak cocok!");
+      return;
+    }
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log("User created:", userCredential.user);
+      toast.success("Registrasi Berhasil!");
+      window.location.href = "/ReactjsChill/#";
+    } catch (err) {
+      toast.error("Gagal Registrasi: " + err.message);
+    }
+    saveUserToFirestore();
+  };
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("User signed in:", result.user);
+      toast.success("Login dengan Google berhasil!");
+    } catch (err) {
+      toast.error("Gagal Login dengan Google: " + err.message);
+    }
+  };
 
-    const [Post, setFilm] = useState([]);
-    const [Prem, setBuy] = useState([]);
-    const [PremSel, setPremSel] = useState([]);
-    const [selectedFilm, setSelectedFilm] = useState(() => Post.find(f => f.id === 2));   
-    const [popUp,setPop] = useState(false);
-    
-    const handleRegister = () => {
-        if ( password !== conpassword ) {
-            toast.error("password ada tidak cocok dengan konfirmasi password");
-            return;
-        }
-        
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const userExists = users.find(user => user.username === username);
-
-        if (userExists) {
-            toast.error("Pengguna telah ada");
-            return;
-        }
-        if (!username.endsWith("@gmail.com")) {
-            toast.error("Email harus berakhiran '@gmail.com'");
-             return;
-        }
-
-        users.push({username,password,premium});
-        localStorage.setItem("users", JSON.stringify(users));
-        toast.success("Registrasi Sudah Terdaftar");
-        window.location.href="/ReactjsChill/#/login";
+  const handlePremium = async () => {
+    const user = auth.currentUser;
+    if (!user) {
+      console.log("❌ User ID tidak valid.");
+      return;
     }
 
-    const handlePremium = () => {
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
+    try {
+      const userRef = doc(db, "users", user.uid);
+      await updateDoc(userRef, {
+        isPremium: !isPremium,
+      });
+
+      setPremium((prev) => !prev);
+      console.log(`✅ Status isPremium diubah menjadi ${!isPremium}`);
+    } catch (error) {
+      console.error("❌ Error mengubah status isPremium:", error);
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const token = generateToken();
+
+      const loggedInData = {
+        email: userCredential.user.email,
+        token,
+        isPremium: userCredential.user.isPremium || false,
+      };
+
+      localStorage.setItem("loggedInUser", JSON.stringify(loggedInData));
+      localStorage.setItem("authToken", token);
+
+      toast.success("Login Berhasil!");
+      window.location.href = "/ReactjsChill/#";
+    } catch (err) {
+      toast.error("Gagal Login: " + err.message);
+    }
+  };
+  const handleLogout = async () => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
+      console.log("Logout berhasil");
+    } catch (error) {
+      console.error("Error saat logout:", error);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      toast.success("Login dengan Google Berhasil!");
+      const token = generateToken();
+      const loggedInData = { ...email, token };
+      localStorage.setItem("loggedInUser", JSON.stringify(loggedInData));
+      localStorage.setItem("authToken", token);
+      window.location.href = "/ReactjsChill/#";
+    } catch (err) {
+      toast.error("Gagal Login dengan Google: " + err.message);
+    }
+  };
+
+  const handleUpdateEmail = async () => {
+    try {
+      if (!auth.currentUser) {
+        toast.error("User belum login!");
+        return;
+      }
+
+      const credential = EmailAuthProvider.credential(
+        auth.currentUser.email,
+        currentPassword
+      );
+      await reauthenticateWithCredential(auth.currentUser, credential);
+
+      await updateEmail(auth.currentUser, newEmail);
+      toast.success("Email berhasil diperbarui!");
+    } catch (error) {
+      toast.error(`Error: ${error.message}`);
+    }
+  };
+
+  const handleUpdatePassword = async () => {
+    try {
+      if (!auth.currentUser) {
+        toast.error("User belum login!");
+        return;
+      }
+
+      const credential = EmailAuthProvider.credential(
+        auth.currentUser.email,
+        currentPassword
+      );
+      await reauthenticateWithCredential(auth.currentUser, credential);
+
+      await updatePassword(auth.currentUser, newPassword);
+      toast.success("Password berhasil diperbarui!");
+    } catch (error) {
+      toast.error(`Error: ${error.message}`);
+    }
+  };
+
+  const handleImageUpload = (event) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
     
-        let userIndex = users.findIndex(user => user.username === loggedInUser.username);
-    
-        if (userIndex === -1) {
-            toast.error("Pengguna tidak ditemukan!");
-            return;
-        }
-    
-        if (users[userIndex].premium) {
-            toast.error("Pengguna sudah premium");
-            return;
-        }
-    
-        users[userIndex].premium = true;
-    
-        localStorage.setItem("users", JSON.stringify(users));
-        localStorage.setItem("loggedInUser", JSON.stringify({ 
-            username: loggedInUser.username, 
-            password: loggedInUser.password, 
-            premium: true 
-        }));
-        setPremium(true);
-    
-        alert("Berhasil berlangganan premium!");
+    const file = event.target.files[0];
+
+    if (file && loggedInUser) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageData = e.target.result;
+
+            setProfileImage(imageData);
+
+            const updatedLoggedInUser = { ...loggedInUser, profileImage: imageData };
+            localStorage.setItem("loggedInUser", JSON.stringify(updatedLoggedInUser));
+
+            const updatedUsers = users.map((user) =>
+                user.email === loggedInUser.email ? updatedLoggedInUser : user
+            );
+
+            localStorage.setItem("users", JSON.stringify(updatedUsers));
+        };
+
+        reader.readAsDataURL(file);
+    }
+};
+
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      if (!loggedInUser) return;
+
+      const userRef = doc(db, "users", loggedInUser.uid);
+      const userSnap = await getDoc(userRef);
+      console.log("Logged in user:", loggedInUser); // Debugging
+
+      if (userSnap.exists()) {
+        console.log("User data:", userSnap.data()); // Debugging
+        setFavoriteFilms(userSnap.data().favoriteFilms || []);
+      }
     };
-    
 
-    const handleLogin = () => {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.find(user => user.username === username && user.password === password); 
-    
-        if (user) {
-            const token = generateToken();
-            const loggedInData = { ...user, token };
-            localStorage.setItem("loggedInUser", JSON.stringify(loggedInData));
-            localStorage.setItem("authToken", token);
-            window.location.href = "/ReactjsChill/#";
-        } else {
-            toast.error("Username atau password salah");
-        }
-    };
-    
+    fetchFavorites();
+  }, [loggedInUser]); // Tambahkan loggedInUser di dependency array
 
-    const handleSave = () => {
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-
-        const usernameExists = users.some(user => user.username === newUsername && user.username !== loggedInUser.username);
-        if (usernameExists) {
-            toast.error("Username telah digunakan");
-            return;
-        }
-
-        users = users.map( user => {
-            if (user.username === loggedInUser.username) {
-                return { username: newUsername, password:newPassword };
-
-            }
-            return users;
-        }) ;
-        localStorage.setItem("users", JSON.stringify(users));
-        localStorage.setItem("loggedInUser", JSON.stringify({ username: newUsername, password: newPassword }));
-    
-        alert("Perubahan berhasil disimpan");
+  const addFavoriteFilm = async (filmId) => {
+    const user = auth.currentUser;
+    if (!user) {
+      console.log("❌ User ID tidak valid.");
+      return;
     }
 
+    try {
+      const userRef = doc(db, "users", user.uid);
+      await updateDoc(userRef, {
+        favoriteFilms: arrayUnion(filmId),
+      });
 
-    const handleImageUpload = (event) => {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const file = event.target.files[0];
-    
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const imageData = e.target.result; 
-    
-                setProfileImage(imageData);
-                localStorage.setItem("profileImage", imageData);
-    
-                const updatedUsers = users.map(user => 
-                    user.username === loggedInUser.username ? { ...user, profileImage: imageData } : user
-                );
-    
-                localStorage.setItem("users", JSON.stringify(updatedUsers));
-                localStorage.setItem("loggedInUser", JSON.stringify({ ...loggedInUser, profileImage: imageData }));
-            };
-    
-            reader.readAsDataURL(file); 
-        }
-    };
-    
+      setFavoriteFilms((prev) => [...prev, filmId]);
+      console.log(`✅ Film ${filmId} berhasil ditambahkan ke favorit!`);
+    } catch (error) {
+      console.error("❌ Error menambahkan film:", error);
+    }
+  };
 
-    const addFavoriteFilm = (filmId) => {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || {};
-        
-        let newFavorites = loggedInUser.favoriteFilms ? [...loggedInUser.favoriteFilms] : [];
-    
-        if (!newFavorites.includes(filmId)) {
-            newFavorites.push(filmId);
-        }
-    
-        const updatedUsers = users.map(user => 
-            user.username === loggedInUser.username ? { ...user, favoriteFilms: newFavorites } : user
-        );
-    
-        localStorage.setItem("users", JSON.stringify(updatedUsers));
-        localStorage.setItem("loggedInUser", JSON.stringify({ ...loggedInUser, favoriteFilms: newFavorites }));
-    
-        setFavoriteFilms([...newFavorites]);
-    };
-    
-    
-      
-    const removeFavoriteFilm = (filmId) => {
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        let newFavorites = [];
-    
-        const updatedUsers = users.map(user => {
-            if (user.username === loggedInUser.username) {
-                const newFavorites = user.favoriteFilms ? user.favoriteFilms.filter(id => id !== filmId) : [];
-                return { ...user, favoriteFilms: newFavorites };
-            }
-            return user;
-        });
-    
-        localStorage.setItem("users", JSON.stringify(updatedUsers));
-        localStorage.setItem("loggedInUser", JSON.stringify({ ...loggedInUser, favoriteFilms: newFavorites }));
-        setFavoriteFilms(newFavorites);
-    };
-    
-    const handleImageClick = (filmId) => {
-        const film = Post.find(f => f.id === filmId)
-        
-        setSelectedFilm(null || film)
-    };
-
-    const handlePrem = (premid) => {
-        const premi = Prem.find(p => p.id === premid)
-        setPremSel(null || premi)
+  const removeFavoriteFilm = async (filmId) => {
+    const user = auth.currentUser;
+    if (!user) {
+      console.log("❌ User ID tidak valid.");
+      return;
     }
 
-    useEffect(() => {
-        setFilm(Poster);
-        setBuy(BuyPremium);
-        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    try {
+      const userRef = doc(db, "users", user.uid);
+      await updateDoc(userRef, {
+        favoriteFilms: arrayRemove(filmId),
+      });
+
+      setFavoriteFilms((prev) => prev.filter((id) => id !== filmId));
+      console.log(`✅ Film ${filmId} berhasil dihapus dari favorit!`);
+    } catch (error) {
+      console.error("❌ Error menghapus film:", error);
+    }
+  };
+
+  const handleImageClick = (filmId) => {
+    const film = Post.find((f) => f.id === filmId);
+
+    setSelectedFilm(null || film);
+  };
+
+  const handlePrem = (premid) => {
+    const premi = Prem.find((p) => p.id === premid);
+    setPremSel(null || premi);
+  };
+
+  useEffect(() => {
+    const getMovies = async () => {
+      const data = await fetchMovies();
+      setFilm(data);
+    };
+    getMovies();
+  }, []);
+  useEffect(() => {
+    const getPremiums = async () => {
+      const data = await fetchPremiums();
+      setBuy(data);
+    };
+    getPremiums();
+  }, []);
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser && loggedInUser.favoriteFilms) {
-        setFavoriteFilms(loggedInUser.favoriteFilms);
+      setFavoriteFilms(loggedInUser.favoriteFilms);
     }
-
-    }, [])
-    return (
-        <UserContext.Provider value={{Post,Prem,username,password,premium,handlePremium,conpassword,newUsername,
-                                      newPassword, handlePrem,PremSel,setPremSel,setnewUsername,
-                                      setnewPassword,handleRegister,handleLogin,setUsername,handleSave,
-                                      setPassword,setconpassword,handleImageUpload,setProfileImage,profileImage,
-                                      setPremium,favoriteFilms, setFavoriteFilms,addFavoriteFilm,removeFavoriteFilm,
-                                      handleImageClick, setPop, selectedFilm, popUp}}>
-            {children}
-        </UserContext.Provider>
-    )
-}
+  }, []);
+  return (
+    <UserContext.Provider
+      value={{
+        Post,
+        Prem,
+        email,
+        password,
+        isPremium,
+        handlePremium,
+        conpassword,
+        newEmail,
+        newPassword,
+        handlePrem,
+        PremSel,
+        setPremSel,
+        setnewEmail,
+        setnewPassword,
+        handleRegister,
+        handleLogin,
+        setEmail,
+        handleUpdateEmail,
+        setPassword,
+        setconpassword,
+        handleImageUpload,
+        setProfileImage,
+        profileImage,
+        setPremium,
+        favoriteFilms,
+        setFavoriteFilms,
+        addFavoriteFilm,
+        removeFavoriteFilm,
+        handleImageClick,
+        setPop,
+        selectedFilm,
+        popUp,
+        handleGoogleSignIn,
+        handleGoogleLogin,
+        handleUpdatePassword,
+        setCurrentPassword,
+        handleLogout,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 export const useDataContext = () => useContext(UserContext);
