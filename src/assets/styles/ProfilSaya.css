@@ -193,7 +193,9 @@
     width: 189px;
     height: 34px;
     text-decoration: none;
-    position: relative;
+    margin-left: 50%;
+    padding-top: 10px;
+    text-decoration: none;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -351,5 +353,8 @@
         width: 90px;
         height: 38px;
         font-size: 12px;
+    }
+    .byrto{
+        padding-top: 7px;
     }
 }

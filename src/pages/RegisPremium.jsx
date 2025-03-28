@@ -22,7 +22,7 @@ function RegisPremium() {
 
     
     useEffect(() => {
-        const selectedPrem = Prem.find((p) => p.id === parseInt(id));
+        const selectedPrem = Prem.find((p) => p.id === id);
         if (selectedPrem) {
             setPremSel(selectedPrem);
         }
@@ -125,7 +125,7 @@ function RegisPremium() {
                                         </div>
                                         <div className="tanggal" style={{ color: "#C1C2C4" }}>
                                             <div>Total Pembayaran</div>
-                                            <div>Rp.{(PremSel.price) - adminpa}</div>
+                                            <div>Rp.{(PremSel.price) + adminpa}</div>
                                         </div>
                                     </div>
 

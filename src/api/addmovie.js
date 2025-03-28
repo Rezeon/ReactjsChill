@@ -16,7 +16,11 @@ export const saveUserToFirestore = async () => {
       favoriteMovies: [],
       isPremium: false,
       profilePicture: "",
-    });
+    },
+    {
+      merge: true
+    }
+  );
 
     console.log("✅ Data user berhasil disimpan ke Firestore!");
   } catch (error) {

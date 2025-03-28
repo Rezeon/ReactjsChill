@@ -86,14 +86,14 @@ export const fetchPremiums = async () => {
         }
 
         const premium = response.data.documents.map((doc) => {
-            const fields = parseFirestoreData(doc.fields); // Parsing semua data
+            const fields = parseFirestoreData(doc.fields);
 
             return {
                 id: doc.name.split("/").pop(),
                 jenis: fields.jenis || "Unknown",
                 price: fields.price || 0,
                 accounts: fields.accounts || "N/A",
-                features: Array.isArray(fields.features) ? fields.features : [],
+                features: fields.features?.map(item => item.stringValue) || [],
             };
         });
 

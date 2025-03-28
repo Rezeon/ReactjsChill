@@ -58,19 +58,20 @@ export const UserProvider = ({ children }) => {
       return;
     }
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log("User created:", userCredential.user);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user; 
+      
+      console.log("✅ User created:", user);
       toast.success("Registrasi Berhasil!");
+  
+      await saveUserToFirestore(user);
+  
       window.location.href = "/ReactjsChill/#";
     } catch (err) {
       toast.error("Gagal Registrasi: " + err.message);
     }
-    saveUserToFirestore();
   };
+  
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -224,16 +225,16 @@ export const UserProvider = ({ children }) => {
 
       const userRef = doc(db, "users", loggedInUser.uid);
       const userSnap = await getDoc(userRef);
-      console.log("Logged in user:", loggedInUser); // Debugging
+      console.log("Logged in user:", loggedInUser); 
 
       if (userSnap.exists()) {
-        console.log("User data:", userSnap.data()); // Debugging
+        console.log("User data:", userSnap.data()); 
         setFavoriteFilms(userSnap.data().favoriteFilms || []);
       }
     };
 
     fetchFavorites();
-  }, [loggedInUser]); // Tambahkan loggedInUser di dependency array
+  }, [loggedInUser]); 
 
   const addFavoriteFilm = async (filmId) => {
     const user = auth.currentUser;
