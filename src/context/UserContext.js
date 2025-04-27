@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import Prof from "../assets/icon/Prof.png";
+import { useNavigate } from "react-router-dom";
 import { fetchMovies, fetchPremiums } from "../api/api";
 import { auth, googleProvider, db } from "../api/firebase";
 import {
@@ -30,6 +31,7 @@ const generateToken = () => {
 
 export const UserProvider = ({ children }) => {
   const loggedInUser = auth.currentUser;
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -132,6 +134,7 @@ export const UserProvider = ({ children }) => {
     try {
       await signOut(auth);
       console.log("Logout berhasil");
+      navigate("/login"); 
     } catch (error) {
       console.error("Error saat logout:", error);
     }
@@ -151,7 +154,7 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const handleUpdateEmail = async () => {
+  const handleUpdateEmail = async (currentPassword) => {
     try {
       if (!auth.currentUser) {
         toast.error("User belum login!");
@@ -163,31 +166,30 @@ export const UserProvider = ({ children }) => {
         currentPassword
       );
       await reauthenticateWithCredential(auth.currentUser, credential);
-
       await updateEmail(auth.currentUser, newEmail);
       toast.success("Email berhasil diperbarui!");
     } catch (error) {
-      toast.error(`Error: ${error.message}`);
+      toast.error(`Error update email: ${error.message}`);
     }
   };
 
-  const handleUpdatePassword = async () => {
+  const handleUpdatePassword = async (currentPassword) => {
+    const user = auth.currentUser;
     try {
-      if (!auth.currentUser) {
+      if (!user) {
         toast.error("User belum login!");
         return;
       }
 
       const credential = EmailAuthProvider.credential(
-        auth.currentUser.email,
+        user.email,
         currentPassword
       );
-      await reauthenticateWithCredential(auth.currentUser, credential);
-
-      await updatePassword(auth.currentUser, newPassword);
+      await reauthenticateWithCredential(user, credential);
+      await updatePassword(user, newPassword);
       toast.success("Password berhasil diperbarui!");
     } catch (error) {
-      toast.error(`Error: ${error.message}`);
+      toast.error(`Error update password: ${error.message}`);
     }
   };
 
@@ -347,6 +349,7 @@ export const UserProvider = ({ children }) => {
         handleUpdatePassword,
         setCurrentPassword,
         handleLogout,
+        currentPassword
       }}
     >
       {children}

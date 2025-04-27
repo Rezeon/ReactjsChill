@@ -1,19 +1,26 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 const ProtectedRoute = () => {
-  const loggedInUser = (() => {
-    if (typeof window !== "undefined") {
-      try {
-        return JSON.parse(localStorage.getItem("loggedInUser")) || {};
-      } catch (error) {
-        console.error("Error parsing loggedInUser:", error);
-        return {};
-      }
-    }
-    return {};
-  })();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  return loggedInUser?.token ? <Outlet /> : <Navigate to="/login" />;
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;
